@@ -22,6 +22,13 @@ namespace Trip_booking.Controllers
             return View("Trips", _repo.GetAllTrips());
         }
 
+        public ActionResult Create()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View("CreateTrip");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

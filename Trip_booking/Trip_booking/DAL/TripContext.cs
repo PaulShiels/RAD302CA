@@ -35,10 +35,10 @@ namespace Trip_booking.DAL
         {
             var trips = new List<Trip>
             {
-                new Trip {name="Sahara Adventure", legs=4, startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", legs=4, startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", legs=4, startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", legs=4, startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10}
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10}
             };
             trips.ForEach(s => context.Trips.Add(s));
             context.SaveChanges();

@@ -24,7 +24,7 @@ namespace Trip_booking.DAL
 
         public Trip GetTripById(int? id) //College2.Models.Student GetStudentById(int? id)
         {
-            return _ctx.Trips.Include(s => s.trips).SingleOrDefault();//s => s.trips == id);
+            return _ctx.Trips.SingleOrDefault();//.Include(s => s.trips).SingleOrDefault();//s => s.trips == id);
         }
 
         public void Dispose()
