@@ -42,6 +42,16 @@ namespace Trip_booking.DAL
             };
             trips.ForEach(s => context.Trips.Add(s));
             context.SaveChanges();
+
+            var legs = new List<Leg>
+            {
+                new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
+                new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
+                new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
+                new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
+                new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")}
+            };
+
             var guests = new List<Guest>
             {
                 new Guest{name="Paddy"},

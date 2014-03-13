@@ -7,54 +7,55 @@
 
 <h2>Trips</h2>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.legs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.minimumGuests)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-md-7">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.startDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.endDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.minimumGuests)
+                </th>
+                <th></th>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.legs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.startDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.endDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.minimumGuests)
-            </td>
-            <td>
-                @Html.ActionLink("Create", "Create", new { id = item.ID }) |
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.startDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.endDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.minimumGuests)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Create", "Create", new { id = item.ID }) |
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
+
+    <div class="col-md-5">Legs  mskjncncdsncdsccdscdvfdv</div>
+</div>
+
 
 <div id="legs"></div>
 

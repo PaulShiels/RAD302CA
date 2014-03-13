@@ -177,6 +177,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Trips.cshtml" />
     <Content Include="Views\Home\CreateTrip.cshtml" />
+    <Content Include="Views\Home\Partial1.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
