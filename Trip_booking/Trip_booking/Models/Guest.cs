@@ -9,7 +9,7 @@ namespace Trip_booking.Models
     {
         public int ID { get; set; }
         public string name { get; set; }
-        public int legs { get; set; }
+        public virtual ICollection<Leg> legs { get; set; }
 
         //public Guest()
         //{
@@ -21,6 +21,5 @@ namespace Trip_booking.Models
         //    this.name = name;
         //}
 
-        public ICollection<Guest> Guests { get; set; }
     }
 }

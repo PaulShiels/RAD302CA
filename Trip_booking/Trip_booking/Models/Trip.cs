@@ -13,7 +13,7 @@ namespace Trip_booking.Models
         public DateTime? endDate { get; set; }
         public int minimumGuests { get; set; }
 
-        public ICollection<Leg> legs { get; set; }
+        public virtual ICollection<Leg> legs { get; set; }
 
         //public Trip()
         //{

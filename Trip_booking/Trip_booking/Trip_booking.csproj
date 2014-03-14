@@ -140,6 +140,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Guest.cs" />
+    <Compile Include="Models\GuestToLegs.cs" />
     <Compile Include="Models\Leg.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,9 +176,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\Trips.cshtml" />
     <Content Include="Views\Home\CreateTrip.cshtml" />
-    <Content Include="Views\Home\Partial1.cshtml" />
+    <Content Include="Views\Home\_Legs.cshtml" />
+    <Content Include="Views\Home\AddGuest.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

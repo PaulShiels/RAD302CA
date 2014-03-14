@@ -15,9 +15,10 @@ namespace Trip_booking.DAL
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Leg> Legs { get; set; }
         public DbSet<Trip> Trips { get; set; }
+        public DbSet<GuestToLegs> Guest2Leg { get; set; }
 
         public TripContext()
-            : base("TripCtx")
+            : base("TripContext")
         {
             Database.SetInitializer(new TripInitializer());
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripContext, Configuration>());
@@ -33,16 +34,6 @@ namespace Trip_booking.DAL
     {
         protected override void Seed(TripContext context)
         {
-            var trips = new List<Trip>
-            {
-                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10},
-                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10}
-            };
-            trips.ForEach(s => context.Trips.Add(s));
-            context.SaveChanges();
-
             var legs = new List<Leg>
             {
                 new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
@@ -51,6 +42,20 @@ namespace Trip_booking.DAL
                 new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")},
                 new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013")}
             };
+            
+
+            var trips = new List<Trip>
+            {
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10, legs = new List<Leg>{ new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013"),tripID=1}}},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10,legs = new List<Leg>{ new Leg{startLocation="Desert West", endLocation = "Desert East", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("16/01/2013"),tripID=1}}},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10, legs=legs},
+                new Trip {name="Sahara Adventure", startDate=DateTime.Parse("12/01/2013"), endDate=DateTime.Parse("12/02/2013"), minimumGuests=10}
+            };
+            trips.ForEach(s => context.Trips.Add(s));
+            legs.ForEach(l => context.Legs.Add(l));
+            context.SaveChanges();
+
+            
 
             var guests = new List<Guest>
             {

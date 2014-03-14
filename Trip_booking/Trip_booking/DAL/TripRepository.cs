@@ -27,6 +27,36 @@ namespace Trip_booking.DAL
             return _ctx.Trips.SingleOrDefault();//.Include(s => s.trips).SingleOrDefault();//s => s.trips == id);
         }
 
+        public IQueryable<Leg> GetLegById(int id)
+        {
+            return _ctx.Legs.Where(l=>l.trip.ID == id);
+        }
+
+        public Leg GetLegToAddGuest(int id)
+        {
+            return _ctx.Legs.Find(id);
+        }
+
+        public void addGuestToLeg(int lId, int gId)
+        {
+            GuestToLegs gl = new GuestToLegs();
+            gl.GuestId = gId;
+            gl.LegId = lId;
+            _ctx.Guest2Leg.Add(gl);
+            _ctx.Entry(gl).State = EntityState.Added;
+            _ctx.SaveChanges();
+        }
+
+        public IQueryable<Guest> GetAllGuests()
+        {
+            return _ctx.Guests;
+        }
+
+        public IQueryable<Leg> GetAllLegs()
+        {
+            return _ctx.Legs;
+        }
+
         public void Dispose()
         {
             _ctx.Dispose();

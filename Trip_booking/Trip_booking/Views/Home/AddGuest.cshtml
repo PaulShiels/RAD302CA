@@ -1,0 +1,68 @@
+﻿@model Trip_booking.Models.Leg
+
+@{
+    ViewBag.Title = "View1";
+}
+
+<h2>View1</h2>
+
+
+@using (Html.BeginForm("AddGuest", "Home", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Guest</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+    <div>
+
+        @Html.DropDownList("Guests",
+            new SelectList(ViewBag.Guests, "ID", "name"),
+            new { @class = "form-control" })
+        </div>
+
+        <div style="display:none">
+            @Html.TextBoxFor(model => model.Id)
+        </div>
+          
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.name)
+                @Html.ValidationMessageFor(model => model.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.legs, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.legs)
+                @Html.ValidationMessageFor(model => model.legs)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MyProperty, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MyProperty)
+                @Html.ValidationMessageFor(model => model.MyProperty)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Guest" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
