@@ -179,6 +179,7 @@
     <Content Include="Views\Home\CreateTrip.cshtml" />
     <Content Include="Views\Home\_Legs.cshtml" />
     <Content Include="Views\Home\AddGuest.cshtml" />
+    <Content Include="Views\Home\AddLeg.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

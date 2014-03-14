@@ -18,13 +18,13 @@
 
     <div>
 
-        @Html.DropDownList("Guests",
-            new SelectList(ViewBag.Guests, "ID", "name"),
+        @Html.DropDownList("GuestId",
+            new SelectList(ViewBag.Guests, "GuestId", "name"),
             new { @class = "form-control" })
         </div>
 
         <div style="display:none">
-            @Html.TextBoxFor(model => model.Id)
+            @Html.TextBoxFor(model => model.LegId)
         </div>
           
     @*<div class="form-group">

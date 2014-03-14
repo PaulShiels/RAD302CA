@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Trip_booking.DAL;
+using Trip_booking.Models;
 
 namespace Trip_booking.Controllers
 {
@@ -42,12 +43,27 @@ namespace Trip_booking.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddGuest(FormCollection fc)
+        public ActionResult AddGuest(GuestToLegs gl)
         {
-            int legId = Convert.ToInt32(fc["Id"]);
-            int guestId = Convert.ToInt32(fc["ID"]);
+            //if (_repo.Guest2Leg.Contains(gl))
+            //{
 
-            _repo.addGuestToLeg(legId, guestId);
+            //}
+
+            _repo.addGuestToLeg(gl);
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult AddLegToTrip(int id)
+        {
+            ViewBag.Trip = _repo.GetTripById(id);
+            return View("AddLeg");
+        }
+
+        [HttpPost]
+        public ActionResult AddLegToTrip(Leg l)
+        {
+            _repo.AddLegToTrip(l);
             return RedirectToAction("Index");
         }
 

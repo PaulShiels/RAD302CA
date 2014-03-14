@@ -18,7 +18,7 @@ namespace Trip_booking.DAL
         public DbSet<GuestToLegs> Guest2Leg { get; set; }
 
         public TripContext()
-            : base("TripContext")
+            : base("TripDB")
         {
             Database.SetInitializer(new TripInitializer());
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripContext, Configuration>());

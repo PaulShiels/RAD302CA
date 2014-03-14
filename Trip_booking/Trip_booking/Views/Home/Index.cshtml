@@ -30,7 +30,7 @@
 
             @foreach (var item in Model)
 {
-    <tr onclick="listLegs('@item.ID');" style="cursor:pointer">
+    <tr onclick="listLegs('@item.tripID');" style="cursor:pointer">
         <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
@@ -44,10 +44,11 @@
             @Html.DisplayFor(modelItem => item.minimumGuests)
         </td>
         <td>
-            @Html.ActionLink("Create", "Create", new { id = item.ID }) |
-            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Create", "Create", new { id = item.tripID }) |
+            @Html.ActionLink("Add Leg", "AddLegToTrip", new { id = item.tripID })
+            @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
         </td>
     </tr>
 }

@@ -7,7 +7,7 @@ namespace Trip_booking.Models
 {
     public class Guest
     {
-        public int ID { get; set; }
+        public int GuestId { get; set; }
         public string name { get; set; }
         public virtual ICollection<Leg> legs { get; set; }
 

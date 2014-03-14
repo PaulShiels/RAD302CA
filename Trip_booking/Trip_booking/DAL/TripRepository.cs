@@ -24,12 +24,12 @@ namespace Trip_booking.DAL
 
         public Trip GetTripById(int? id) //College2.Models.Student GetStudentById(int? id)
         {
-            return _ctx.Trips.SingleOrDefault();//.Include(s => s.trips).SingleOrDefault();//s => s.trips == id);
+            return _ctx.Trips.Find(id);//.Include(s => s.trips).SingleOrDefault();//s => s.trips == id);
         }
 
         public IQueryable<Leg> GetLegById(int id)
         {
-            return _ctx.Legs.Where(l=>l.trip.ID == id);
+            return _ctx.Legs.Where(l=>l.trip.tripID == id);
         }
 
         public Leg GetLegToAddGuest(int id)
@@ -37,11 +37,8 @@ namespace Trip_booking.DAL
             return _ctx.Legs.Find(id);
         }
 
-        public void addGuestToLeg(int lId, int gId)
-        {
-            GuestToLegs gl = new GuestToLegs();
-            gl.GuestId = gId;
-            gl.LegId = lId;
+        public void addGuestToLeg(GuestToLegs gl)
+        {            
             _ctx.Guest2Leg.Add(gl);
             _ctx.Entry(gl).State = EntityState.Added;
             _ctx.SaveChanges();
@@ -68,6 +65,12 @@ namespace Trip_booking.DAL
             _ctx.Entry(t).State = EntityState.Added;
             _ctx.SaveChanges();
             return t;
+        }
+
+        public void AddLegToTrip(Leg l)
+        {
+            _ctx.Entry(l).State = EntityState.Added;
+            _ctx.SaveChanges();
         }
     }
 }

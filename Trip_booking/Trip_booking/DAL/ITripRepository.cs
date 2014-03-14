@@ -16,7 +16,8 @@ namespace Trip_booking.DAL
         IQueryable<Leg> GetAllLegs();
         Leg GetLegToAddGuest(int id);
         IQueryable<Guest> GetAllGuests();
-        void addGuestToLeg(int lId, int gId);
+        void addGuestToLeg(GuestToLegs gl);
+        void AddLegToTrip(Leg l);
 
     }
 }

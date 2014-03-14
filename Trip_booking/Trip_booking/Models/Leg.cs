@@ -7,7 +7,7 @@ namespace Trip_booking.Models
 {
     public class Leg
     {
-        public int Id { get; set; }
+        public int LegId { get; set; }
         public string startLocation { get; set; }
         public string endLocation { get; set; }
         public DateTime? startDate { get; set; }

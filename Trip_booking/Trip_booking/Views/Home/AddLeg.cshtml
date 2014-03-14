@@ -1,0 +1,81 @@
+﻿@using Trip_booking.Models;
+@model Leg
+
+
+@{
+    ViewBag.Title = "AddLeg";
+}
+
+<h2>AddLeg</h2>
+ 
+ 
+
+@using (Html.BeginForm()) 
+{
+    
+    Trip t = new Trip();
+    t=(Trip)ViewBag.Trip;
+    
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Leg</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.startLocation, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.startLocation)
+                @Html.ValidationMessageFor(model => model.startLocation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.endLocation, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.endLocation)
+                @Html.ValidationMessageFor(model => model.endLocation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.startDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.startDate)
+                @Html.ValidationMessageFor(model => model.startDate)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.endDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.endDate)
+                @Html.ValidationMessageFor(model => model.endDate)
+            </div>
+        </div>
+       
+        <div class="form-group" style="display:none">
+         <input type="text" value="@t.tripID" id="tripID" name="tripID"/>
+    @*@Html.TextBox(model => model.tripID, "tripID", new { @class = "control-label col-md-2" })*@
+            @*<div class="col-md-10">
+                @Html.DropDownList("tripID", String.Empty)
+                @Html.ValidationMessageFor(model => model.tripID)
+            </div>*@
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
