@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -23,16 +24,22 @@ namespace Trip_booking.Controllers
             return View(_repo.GetAllTrips());
         }
 
-        public ActionResult Create()
+        public ActionResult CreateTrip()
         {
             ViewBag.Message = "Your application description page.";
 
             return View("CreateTrip");
         }
 
+        [HttpPost]
+        public ActionResult CreateTrip(Trip t)
+        {
+            _repo.AddTrip(t);
+            return RedirectToAction("Index");
+        }
+
         public ActionResult listLegs(int id)
         {
-            //return View(_repo.GetAllLegs());
             return PartialView("_Legs", _repo.GetLegById(id));//, _repo.GetTripById(id));
         }
 
@@ -52,7 +59,7 @@ namespace Trip_booking.Controllers
 
             _repo.addGuestToLeg(gl);
             return RedirectToAction("Index");
-        }
+        }        
 
         public ActionResult AddLegToTrip(int id)
         {
@@ -63,8 +70,13 @@ namespace Trip_booking.Controllers
         [HttpPost]
         public ActionResult AddLegToTrip(Leg l)
         {
-            _repo.AddLegToTrip(l);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _repo.AddLegToTrip(l);
+                return RedirectToAction("Index");
+            }
+
+            return View(l);
         }
 
         public ActionResult About()
@@ -79,6 +91,8 @@ namespace Trip_booking.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
+        }        
     }
+
+    
 }

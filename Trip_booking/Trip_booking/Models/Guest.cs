@@ -11,6 +11,8 @@ namespace Trip_booking.Models
         public string name { get; set; }
         public virtual ICollection<Leg> legs { get; set; }
 
+        
+
         //public Guest()
         //{
 

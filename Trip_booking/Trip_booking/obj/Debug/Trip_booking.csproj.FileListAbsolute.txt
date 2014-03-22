@@ -78,3 +78,4 @@ C:\Users\Paul\Documents\IT\Year3\RAD\CA2\RAD302CA\Trip_booking\Trip_booking\bin\
 C:\Users\Paul\Documents\IT\Year3\RAD\CA2\RAD302CA\Trip_booking\Trip_booking\bin\Newtonsoft.Json.xml
 C:\Users\Paul\Documents\IT\Year3\RAD\CA2\RAD302CA\Trip_booking\Trip_booking\bin\Antlr3.Runtime.pdb
 C:\Users\Paul\Documents\IT\Year3\RAD\CA2\RAD302CA\Trip_booking\Trip_booking\obj\Debug\Trip_booking.pdb
+C:\Users\Paul\Documents\IT\Year3\RAD\CA2\RAD302CA\Trip_booking\Trip_booking\bin\DataAnnotationsExtensions.dll

@@ -9,6 +9,18 @@
 
 <h2>Trips</h2>
 
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: 35%">
+        <span class="sr-only">35% Complete (success)</span>
+    </div>
+    <div class="progress-bar progress-bar-warning" style="width: 20%">
+        <span class="sr-only">20% Complete (warning)</span>
+    </div>
+    <div class="progress-bar progress-bar-danger" style="width: 10%">
+        <span class="sr-only">10% Complete (danger)</span>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-7">
         <table class="table table-striped table-hover">
@@ -44,7 +56,7 @@
             @Html.DisplayFor(modelItem => item.minimumGuests)
         </td>
         <td>
-            @Html.ActionLink("Create", "Create", new { id = item.tripID }) |
+            @Html.ActionLink("Create", "CreateTrip", new { id = item.tripID }) |
             @Html.ActionLink("Add Leg", "AddLegToTrip", new { id = item.tripID })
             @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
@@ -57,7 +69,6 @@
     </div>
 
     <div class="col-md-5">
-        Legs  mskjncncdsncdsccdscdvfdv
         <div id="legs"></div>
     </div>
 </div>

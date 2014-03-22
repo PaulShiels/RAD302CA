@@ -32,6 +32,12 @@ namespace Trip_booking.DAL
             return _ctx.Legs.Where(l=>l.trip.tripID == id);
         }
 
+        public void AddTrip(Trip t)
+        {
+            _ctx.Entry(t).State = EntityState.Added;
+            _ctx.SaveChanges();
+        }
+
         public Leg GetLegToAddGuest(int id)
         {
             return _ctx.Legs.Find(id);
@@ -57,14 +63,6 @@ namespace Trip_booking.DAL
         public void Dispose()
         {
             _ctx.Dispose();
-        }
-
-        public Trip AddTrip(Trip t)
-        {
-            /*_ctx.Students.Add(s);*/
-            _ctx.Entry(t).State = EntityState.Added;
-            _ctx.SaveChanges();
-            return t;
         }
 
         public void AddLegToTrip(Leg l)

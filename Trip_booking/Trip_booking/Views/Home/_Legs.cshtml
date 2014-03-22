@@ -1,8 +1,16 @@
 ﻿@model IEnumerable<Trip_booking.Models.Leg>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div>
+    @if (@Model.Count()<1)
+    {
+        <p>There are no legs on this trip.</p>
+    }
+    else
+    {
+        <p>@Model.First().trip.name</p>
+    }
+</div>
+
 <table class="table">
     <tr>
         <th>
