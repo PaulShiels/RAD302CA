@@ -5,6 +5,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 using Trip_booking.DAL;
+using Trip_booking.Migrations;
 //using Trip_booking.Migrations;
 using Trip_booking.Models;
 
@@ -20,14 +21,14 @@ namespace Trip_booking.DAL
         public TripContext()
             : base("TripContext")
         {
-            Database.SetInitializer(new TripInitializer());
-            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripContext, Configuration>());
+            //Database.SetInitializer(new TripInitializer());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<TripContext, Configuration>());
 
         }
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-        //}
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 
     public class TripInitializer : DropCreateDatabaseIfModelChanges<TripContext>

@@ -143,6 +143,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Guest.cs" />
     <Compile Include="Models\GuestToLegs.cs" />
     <Compile Include="Models\Leg.cs" />
@@ -253,9 +254,8 @@
     <Content Include="Views\Home\_Legs.cshtml" />
     <Content Include="Views\Home\AddGuest.cshtml" />
     <Content Include="Views\Home\AddLeg.cshtml" />
-    <Content Include="Views\Home\_TripNotViable.cshtml" />
+    <Content Include="Views\Home\TripNotViable.cshtml" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

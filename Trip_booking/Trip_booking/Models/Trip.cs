@@ -14,6 +14,7 @@ namespace Trip_booking.Models
         public int minimumGuests { get; set; }
 
         public virtual ICollection<Leg> legs { get; set; }
+       
         
         
 

@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "TripNotViable";
+}
+
+<h2>Sorry, this trip is not viable</h2>
+
+<p>
+    @Html.ActionLink("Return", null, null, null, new { href = Request.UrlReferrer })
+</p>
