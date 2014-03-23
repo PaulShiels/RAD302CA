@@ -253,6 +253,7 @@
     <Content Include="Views\Home\_Legs.cshtml" />
     <Content Include="Views\Home\AddGuest.cshtml" />
     <Content Include="Views\Home\AddLeg.cshtml" />
+    <Content Include="Views\Home\_TripNotViable.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -19,9 +19,7 @@ namespace Trip_booking.DAL
         IQueryable<Guest> GetAllGuests();
         void addGuestToLeg(GuestToLegs gl);
         void AddLegToTrip(Leg l);
-
-        
-        
+        bool IsTripViable(Trip t);
         void AddTrip(Trip t);
 
     }

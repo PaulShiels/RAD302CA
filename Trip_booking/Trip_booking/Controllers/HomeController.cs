@@ -34,9 +34,21 @@ namespace Trip_booking.Controllers
         [HttpPost]
         public ActionResult CreateTrip(Trip t)
         {
-            _repo.AddTrip(t);
-            return RedirectToAction("Index");
+            if (_repo.IsTripViable(t))
+            {
+                _repo.AddTrip(t);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return PartialView("_TripNotViable");
+            }
         }
+
+        //public ActionResult ReturnToPrevious()
+        //{
+        //    return Redirect(Request.Referrer);
+        //}
 
         public ActionResult listLegs(int id)
         {
@@ -56,7 +68,6 @@ namespace Trip_booking.Controllers
             //{
 
             //}
-
             _repo.addGuestToLeg(gl);
             return RedirectToAction("Index");
         }        

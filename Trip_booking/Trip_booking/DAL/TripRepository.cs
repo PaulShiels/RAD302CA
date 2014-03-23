@@ -38,6 +38,25 @@ namespace Trip_booking.DAL
             _ctx.SaveChanges();
         }
 
+        public bool IsTripViable(Trip t)
+        {
+            //int noLegs = t.legs.Count();
+            int noGuestsOnLeg = _ctx.Guest2Leg.Where(i => i.Leg == t.legs).Count();
+
+            if(noGuestsOnLeg<t.minimumGuests)
+            {
+                return false;
+            }
+            if (t.minimumGuests < 5)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         public Leg GetLegToAddGuest(int id)
         {
             return _ctx.Legs.Find(id);
