@@ -10,6 +10,7 @@ namespace Trip_booking.Models
         public int GuestId { get; set; }
         public string name { get; set; }
         public virtual ICollection<Leg> legs { get; set; }
+        
 
         
 

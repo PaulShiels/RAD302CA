@@ -8,7 +8,7 @@ using Trip_booking.Controllers;
 
 namespace Trip_booking.Models
 {
-    public class Leg : IValidatableObject
+    public class Leg //: IValidatableObject
     {
         public int LegId { get; set; }
 
@@ -21,6 +21,7 @@ namespace Trip_booking.Models
         ////[Range(0, 120, ErrorMessage = "Please enter between 0 to 120")]
         //[Range(typeof(DateTime), , "3/4/2004",
         //ErrorMessage = "Value for {0} must be between {1} and {2}")]
+        [Required]
         public DateTime startDate { get; set; }
 
         //[Range(typeof(DateTime),  , "3/4/2004",
@@ -33,11 +34,11 @@ namespace Trip_booking.Models
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            Trip t = this.trip;
+            //Trip t = this.trip;
 
-            if (t.startDate < startDate || t.endDate > endDate)
+            if (trip.startDate < startDate)// || trip.endDate > endDate)
             {
-                yield return new ValidationResult("The party should not exceed after 10.00 PM");
+                //yield return new ValidationResult("The party should not exceed after 10.00 PM");
                 //return false;
             }
             else
