@@ -70,5 +70,6 @@ namespace Trip_booking.DAL
             _ctx.Entry(l).State = EntityState.Added;
             _ctx.SaveChanges();
         }
+
     }
 }

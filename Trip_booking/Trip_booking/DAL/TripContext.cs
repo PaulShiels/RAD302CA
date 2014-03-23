@@ -34,6 +34,27 @@ namespace Trip_booking.DAL
     {
         protected override void Seed(TripContext context)
         {
+            var guests = new List<Guest>
+            {
+                new Guest{name="Paddy"},
+                new Guest{name="Joe"},
+                new Guest{name="Siobhan"},
+                new Guest{name="Micky"},
+                new Guest{name="Ann"},
+                new Guest{name="John"},
+                new Guest{name="Brian"},
+                new Guest{name="Ciara"},
+                new Guest{name="Mae"},
+                new Guest{name="Sean"},
+                new Guest{name="Jim"},
+                new Guest{name="Brendan"},
+                new Guest{name="Pat"},
+                new Guest{name="Darragh"},
+                new Guest{name="Mary"},
+                new Guest{name="Liam"},
+                new Guest{name="Dan"}
+            };
+
             var legs = new List<Leg>
             {
                 new Leg{startLocation="Shannon", endLocation = "Dublin", startDate=DateTime.Parse("01/03/2013"), endDate=DateTime.Parse("01/03/2013")},
@@ -73,33 +94,30 @@ namespace Trip_booking.DAL
                 new Trip {name="Northern Tradition", startDate=DateTime.Parse("28/03/2013"), endDate=DateTime.Parse("12/04/2013"), minimumGuests=10, legs_T = new List<Leg>{legs[16],legs[17],legs[18],legs[19],legs[20]}},   
                 new Trip {name="Emerald Supreme", startDate=DateTime.Parse("18/04/2013"), endDate=DateTime.Parse("03/05/2013"), minimumGuests=13, legs_T = new List<Leg>{legs[21],legs[22],legs[23],legs[24],legs[25]}},
             };
+
+            var GuestsToLeg = new List<GuestToLegs>
+            {
+                //new GuestToLegs{GuestId=1, LegId=2}
+                //new GuestToLegs{GuestId=1, LegId=2},
+                //new GuestToLegs{GuestId=1, LegId=3},
+                //new GuestToLegs{GuestId=1, LegId=4},
+                //new GuestToLegs{GuestId=1, LegId=5},
+                //new GuestToLegs{GuestId=1, LegId=6},
+                //new GuestToLegs{GuestId=2, LegId=1},
+                //new GuestToLegs{GuestId=2, LegId=2},
+                //new GuestToLegs{GuestId=2, LegId=3},
+                //new GuestToLegs{GuestId=2, LegId=4},
+                //new GuestToLegs{GuestId=2, LegId=5},
+                //new GuestToLegs{GuestId=2, LegId=6},
+                //new GuestToLegs{GuestId=3, LegId=1},
+                //new GuestToLegs{GuestId=3, LegId=2},
+                //new GuestToLegs{GuestId=3, LegId=3},
+                //new GuestToLegs{GuestId=4, LegId=5}
+            };
             trips.ForEach(s => context.Trips.Add(s));
             legs.ForEach(l => context.Legs.Add(l));
-            context.SaveChanges();
-
-            
-
-            var guests = new List<Guest>
-            {
-                new Guest{name="Paddy"},
-                new Guest{name="Joe"},
-                new Guest{name="Siobhan"},
-                new Guest{name="Micky"},
-                new Guest{name="Ann"},
-                new Guest{name="John"},
-                new Guest{name="Brian"},
-                new Guest{name="Ciara"},
-                new Guest{name="Mae"},
-                new Guest{name="Sean"},
-                new Guest{name="Jim"},
-                new Guest{name="Brendan"},
-                new Guest{name="Pat"},
-                new Guest{name="Darragh"},
-                new Guest{name="Mary"},
-                new Guest{name="Liam"},
-                new Guest{name="Dan"}
-            };
             guests.ForEach(g => context.Guests.Add(g));
+            //GuestsToLeg.ForEach(gl => context.Guest2Leg.Add(gl));
             context.SaveChanges();
 
             //    //    var enrollments = new List<Enrollment>

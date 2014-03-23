@@ -7,35 +7,31 @@
     }
     else
     {
-        <p>@Model.First().trip.name</p>
+        <b><p>Trip Name: @Model.First().trip.name</p></b>
     }
+
+
 </div>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.trip.name)
+            Start Location@*@Html.DisplayNameFor(model => model.startLocation)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startLocation)
+            End Location @*@Html.DisplayNameFor(model => model.endLocation)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.endLocation)
+            Start Date @*@Html.DisplayNameFor(model => model.startDate)*@
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.startDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.endDate)
+            End Date @*@Html.DisplayNameFor(model => model.endDate)*@
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.trip.name)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.startLocation)
         </td>

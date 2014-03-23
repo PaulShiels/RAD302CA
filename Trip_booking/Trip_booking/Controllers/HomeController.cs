@@ -64,13 +64,30 @@ namespace Trip_booking.Controllers
         public ActionResult AddLegToTrip(int id)
         {
             ViewBag.Trip = _repo.GetTripById(id);
+            
             return View("AddLeg");
         }
 
         [HttpPost]
         public ActionResult AddLegToTrip(Leg l)
         {
-            if (ModelState.IsValid)
+            Trip t = _repo.GetTripById(l.tripID);
+            
+            if (!ModelState.IsValid)
+            {
+                //if (!l.checkTrip(t))
+                //{
+                //    ModelState.AddModelError("startDate", "Wrong Date");
+                //    ModelState.AddModelError("endDate", "Wrong Date");
+                //    return View("AddLeg");
+                //}
+                //else
+                //{
+
+                //}
+                return View(l);
+            }
+            else
             {
                 _repo.AddLegToTrip(l);
                 return RedirectToAction("Index");

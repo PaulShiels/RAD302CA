@@ -26,16 +26,21 @@
         <table class="table table-striped table-hover">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.name)
+                    Trip Name@*@Html.DisplayNameFor(model => model.name)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.startDate)
+                    Start Date @*@Html.DisplayNameFor(model => model.startDate)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.endDate)
+                    End Date @*@Html.DisplayNameFor(model => model.endDate)*@
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.minimumGuests)
+                    Min. Guests @*@Html.DisplayNameFor(model => model.minimumGuests)*@
+                </th>
+                <th>
+                    <p class="btn btn-warning" style="background-color:brown">
+                        @Html.ActionLink("Create New Trip", "CreateTrip")
+                    </p>
                 </th>
                 <th></th>
             </tr>
@@ -56,12 +61,13 @@
             @Html.DisplayFor(modelItem => item.minimumGuests)
         </td>
         <td>
-            @Html.ActionLink("Create", "CreateTrip", new { id = item.tripID }) |
-            @Html.ActionLink("Add Leg", "AddLegToTrip", new { id = item.tripID })
-            @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            <p class="btn btn-danger dropdown-toggle">
+                @Html.ActionLink("Add Leg", "AddLegToTrip", new { id = item.tripID })
+            </p>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
-        </td>
+</td>
     </tr>
 }
 
